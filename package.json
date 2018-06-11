@@ -10,6 +10,7 @@
     "build-babel-client": "babel src/client --copy-files --out-dir ./dist/public",
     "clean": "rimraf dist node_modules",
     "start": "node ./dist/server.js",
+    "serve": "webpack-serve --config ./webpack.config.js --port 3000",
     "test": "jest ./src"
   },
   "repository": {
@@ -31,7 +32,9 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "rimraf": "^2.6.2",
-    "webpack": "^4.12.0"
+    "styled-components": "^3.3.2",
+    "webpack": "^4.12.0",
+    "webpack-serve": "^1.0.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

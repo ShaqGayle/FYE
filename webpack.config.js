@@ -1,6 +1,6 @@
 const path = require('path');
-const nodeExternals = require('webpack-node-externals');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+// const nodeExternals = require('webpack-node-externals');
 
 const moduleObj = {
   rules: [
@@ -12,7 +12,22 @@ const moduleObj = {
   ]
 };
 
-const client = {
+// const server = {
+//   mode: 'development',
+//   entry: {
+//     'server': './src/server/index.js'
+//   },
+//   target: 'node',
+//   output: {
+//     filename: '[name].js',
+//     path: path.resolve(__dirname, 'dist')
+//   },
+//   module: moduleObj,
+//   externals: [nodeExternals()]
+// };
+
+module.exports = {
+  devtool: 'cheap-eval-source-map',
   mode: 'development',
   entry: {
     'client': './src/client/index.js'
@@ -29,19 +44,3 @@ const client = {
     })
   ]
 };
-
-const server = {
-  mode: 'development',
-  entry: {
-    'server': './src/server/index.js'
-  },
-  target: 'node',
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
-  },
-  module: moduleObj,
-  externals: [nodeExternals()]
-};
-
-module.exports = [client, server];
